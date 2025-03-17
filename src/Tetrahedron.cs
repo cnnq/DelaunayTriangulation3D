@@ -36,4 +36,8 @@ public struct Tetrahedron {
 			return dotP == 0 || MathF.Sign(dotV4) == MathF.Sign(dotP);
 		}
 	}
+
+	public override string ToString() {
+		return $"[{A}, {B}, {C}, {D}]";
+	}
 }

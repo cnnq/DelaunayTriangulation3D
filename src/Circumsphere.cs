@@ -8,7 +8,7 @@ public class Circumsphere {
 	public float Radius { get; private set; }
 
 	// For certain cases changing this to bigger value can help
-	public const float EPSILON = 9E-07f;
+	public const float EPSILON = 1E-06f;
 
 	/// <summary>
 	/// Create a sphere such that all four points lie on the surface of that sphere

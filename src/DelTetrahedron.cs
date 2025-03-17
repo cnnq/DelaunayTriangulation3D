@@ -115,13 +115,13 @@ internal class DelTetrahedron {
 		ret[5] = new DelTetrahedron(point, q, c, a);
 
 		// Identify neighbors
-		DelTetrahedron abp = PickNeighbor(a, b, p);
-		DelTetrahedron bcp = PickNeighbor(b, c, p);
-		DelTetrahedron cap = PickNeighbor(c, a, p);
-
-		DelTetrahedron abq = neighbor.PickNeighbor(a, b, q);
-		DelTetrahedron bcq = neighbor.PickNeighbor(b, c, q);
-		DelTetrahedron caq = neighbor.PickNeighbor(c, a, q);
+		DelTetrahedron? abp = PickNeighbor(a, b, p);
+		DelTetrahedron? bcp = PickNeighbor(b, c, p);
+		DelTetrahedron? cap = PickNeighbor(c, a, p);
+		
+		DelTetrahedron? abq = neighbor.PickNeighbor(a, b, q);
+		DelTetrahedron? bcq = neighbor.PickNeighbor(b, c, q);
+		DelTetrahedron? caq = neighbor.PickNeighbor(c, a, q);
 
 		// Assign neighbors
 		ret[0].AssignNeighbors(ret[2], abp, ret[3], ret[1]);
@@ -172,7 +172,7 @@ internal class DelTetrahedron {
 
 				if ((neighbors.Count < 2 || currentNeighbor != neighbors[^2])) {
 
-					// End ?
+					// End
 					if (currentNeighbor == this) {
 						closedCircle = true;
 						break;
@@ -574,7 +574,7 @@ internal class DelTetrahedron {
 	internal ContainType Contains(Vector3 p) {
 
 		ContainType c1 = SameSide(A, B, C, D, p); // ABC
-		ContainType c2 = SameSide(B, C, D, A, p); // BCD
+		ContainType c2 = SameSide(B, C, D, A, p); // BCD // <=
 		ContainType c3 = SameSide(C, D, A, B, p); // CDA
 		ContainType c4 = SameSide(D, A, B, C, p); // DAB
 
@@ -672,7 +672,9 @@ internal class DelTetrahedron {
 	}
 
 	internal enum FacetIndex {
-		BCD = 0, CDA = 1, DAB = 2, ABC = 3, None = 4,
+		BCD = 0, CDA = 1, DAB = 2, ABC = 3,
+		
+		None = 4,
 
 		ABCorBCD, ABCorCDA, ABCorDAB,
 		// UNUSED:
