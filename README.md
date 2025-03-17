@@ -9,7 +9,7 @@ Generate mesh of tetrahedrons using `DelaunayTriangulation3D`. To access data us
 
 Example:
 
-```
+```csharp
 var random = new Random();
 var points = new List<Vector3>();
 
