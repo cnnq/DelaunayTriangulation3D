@@ -14,12 +14,15 @@ namespace DelaunayTriangulation3D {
 
 			Console.WriteLine("Seed: " + seed);
 
-			for (int i = 0; i < 256; i++) {
+			/*for (int i = 0; i < 256; i++) {
 				points.Add(new Vector3((float)random.Next(16) / 16f, (float)random.Next(16) / 16f, (float)random.Next(16) / 16f));
+			}*/
+
+			for (int i = 0; i < 256; i++) {
+				points.Add(new Vector3((float)random.NextDouble(), (float)random.NextDouble(), (float)random.NextDouble()));
 			}
 
 			var delaunay = new DelaunayTriangulation3D(points);
-
 
 		}
 	}
